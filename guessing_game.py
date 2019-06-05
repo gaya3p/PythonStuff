@@ -1,11 +1,14 @@
 import random
 
-print('Guessing Game')
-print('The computer has guessed an integer between 1 and 100.')
 
-n = random.randint(1,100)
-guess = int(input('Guess the number: '))
+start = 0
+end = 100
+n = random.randint(start, end)
 tries = 1
+
+print('Guessing Game')
+print(f'The computer has guessed an integer between {start} and {end}.')
+guess = int(input('Guess the number: '))
 
 while guess != n:
     tries += 1
