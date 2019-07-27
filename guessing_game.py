@@ -1,8 +1,7 @@
 import random
 
-
 start = 0
-end = 100
+end = 1492
 n = random.randint(start, end)
 tries = 1
 

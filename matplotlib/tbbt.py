@@ -20,17 +20,19 @@ rats = [8.4,8.4,7.9,8.3,8.1,8.5,8.3,8.4,8.2,8.2,8.3,8.1,8.5,8.3,8.4,
 8,9.3,9.6]
 
 ''' LINE GRAPH
-x = []
-for i in range(1, 280):
-    x.append(i)
-    
+x = [rats for rats in range(1, len(rats) + 1)]
 plt.plot(x, rats)
 '''
 
-'''HISTOGRAM'''
-bins = [(x/10) for x in range(68, 100, 2)]
+''' HISTOGRAM
+bins = [(x/10) for x in range(68, 100, 2)]5
 plt.hist(rats, bins, histtype='bar', color='blue')
 plt.ylim(top=50)
+'''
+
+''' SCATTER PLOT '''
+x = [rats for rats in range(1, len(rats) + 1)]
+plt.scatter(x, rats, label="scats", color='k', marker='x', s=50)
 #'''
 
 plt.xlabel('Episode')

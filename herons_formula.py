@@ -7,8 +7,8 @@ if (a+b) > c and (b+c) > a and (c+a) > b :
     # Finding the area using Heron's formula...        
     s = (a + b + c) / 2
     area = ((s*(s-a)*(s-b)*(s-c)) ** 0.5)
-    PrintableArea = str("%.2f" % area)   
-    print('The area of the triangle is' , PrintableArea,  'square units.')
+    area = str("%.2f" % area)   
+    print('The area of the triangle is' , area,  'square units.')
 
 # If it violates the "Triangle Inequality Theorem"...
 else:

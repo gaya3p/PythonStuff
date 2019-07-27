@@ -107,5 +107,5 @@ except ValueError:
     print('You have to enter a valid \'Number\'.')
 
 except:
-    print('Oops! I (Python) think the program crashed. If you\'re seeing this,  please contact me(Not Python!).')
+    print('Oops! I (Python) think the program crashed.')
 
