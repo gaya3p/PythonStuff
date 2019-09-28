@@ -1,0 +1,24 @@
+''''''
+from itertools import permutations
+s = 'ABCDD'
+
+def isPal(s):
+    if s == s[::-1]:
+        return True
+    else: 
+        return False
+    
+perms = list(permutations(s))
+l = 0
+a = ''
+b = ()
+for perm in perms:
+    if len(perm) > l:
+        if isPal(perm):
+            b = perm
+            l = len(perm)
+            
+for c in b:
+    a += c
+    
+print(f'Longest palindromic permutation is {a} with length {l}.')
