@@ -1,5 +1,5 @@
-s1 = 'starkid'#input('Enter a word: ').lower()
-s2 = 'dikrats'#input('Enter another word: ').lower()
+s1 = 'tommarvoloriddle'
+s2 = 'iamlordvoldemort'
 
 def isAnagram1(s1, s2):
     if len(s2) == len(s2):
@@ -14,10 +14,19 @@ def isAnagram1(s1, s2):
                 return True
     else:
         return False
-    
+
+''' BETTER WAY '''    
 def isAnagram2(s1, s2):
-    a = dict.fromkeys
-    return a(s1) == a(s2)
+    d1, d2 = {}, {}
+    if len(s1) == len(s2):
+        for l in set(s1):
+            d1[l] = s1.count(l)
+        for l in set(s2):
+            d2[l] = s1.count(l)
+        return d1 == d2
+    else:
+        return False
+        
     
 print(isAnagram1(s1, s2))
 print(isAnagram2(s1, s2))

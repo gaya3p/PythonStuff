@@ -1,7 +1,7 @@
 import timeit, functools
     
-s1 = 'starkid'#input('Enter a word: ').lower()
-s2 = 'dikrats'#input('Enter another word: ').lower()
+s1 = 'tommarvoloriddle'
+s2 = 'iamlordvoldemort'
 
 def isAnagram1(s1, s2):
     if len(s2) == len(s2):
@@ -18,13 +18,21 @@ def isAnagram1(s1, s2):
         return False
     
 def isAnagram2(s1, s2):
-    a = dict.fromkeys
-    return a(s1) == a(s2)
+    d1, d2 = {}, {}
+    if len(s1) == len(s2):
+        for l in set(s1):
+            d1[l] = s1.count(l)
+        for l in set(s2):
+            d2[l] = s1.count(l)
+        return d1 == d2
+    else:
+        return False
     
 #print(isAnagram1(s1, s2))
 #print(isAnagram2(s1, s2))
 
 t1 = (timeit.Timer(functools.partial(isAnagram1, s1, s2))).timeit(1000)
 t2 = (timeit.Timer(functools.partial(isAnagram2, s1, s2))).timeit(1000)
-print(t1)
-print(t2)
+print(t1*1000)
+print(t2*1000)
+print(t1/t2)
