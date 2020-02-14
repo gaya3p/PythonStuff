@@ -15,8 +15,6 @@ else:
     for i in range(2, int(n/2)+1):
         if n % i == 0:
             a = int(str(int(n/i)) + str(i))
-            if i == 2:
-                ans = a
-            elif a < ans:
+            if i == 2 or a < ans:
                 ans = a
 print(ans)
