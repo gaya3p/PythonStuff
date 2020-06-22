@@ -25,7 +25,7 @@ plt.plot(x, rats)
 '''
 
 ''' HISTOGRAM
-bins = [(x/10) for x in range(68, 100, 2)]5
+bins = [(x/10) for x in range(68, 100, 2)]
 plt.hist(rats, bins, histtype='bar', color='blue')
 plt.ylim(top=50)
 '''

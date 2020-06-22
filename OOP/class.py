@@ -1,3 +1,5 @@
+import sd
+
 class Student:
 
     def __init__(elf, first, last, course):

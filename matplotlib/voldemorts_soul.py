@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-slices = [256, 128, 64, 32, 16, 8, 4, 2]
+slices = [2**x for x in range(8, 0, -1)]
 horcruxes = ['Riddle\'s Diary',
              'Gaunt\'s Ring',
              'Hufflepuff\'s Cup',

@@ -1,9 +1,17 @@
 import matplotlib.pyplot as plt
+from random import randint
 
-x = [8.4,8.4,7.9,8.3,8.1,8.5,8.3,8.4, 9, 0, 6, 5, 9, 9, 3, 6, 7, 8, 9]
+x = [randint(1, 20) for x in range(20)]
 y = [x for x in range(len(x))]
+c = [randint(1,10) for i in range(len(x))]
+s = [randint(40, 900) for i in range(len(x))]
 
-plt.scatter(x, y, label="scats", color='k', marker='x', s=100)
+plt.scatter(x, y, label="scats", c=c, marker='o', s=s)
+#plt.scatter(c)
+
+cbar = plt.colorbar()
+cbar.set_label('Range')
+
 
 plt.xlabel('x')
 plt.ylabel('y')

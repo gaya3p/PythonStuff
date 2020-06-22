@@ -15,18 +15,19 @@ def isAnagram1(s1, s2):
     else:
         return False
 
-''' BETTER WAY '''    
+''' BEST WAY '''    
 def isAnagram2(s1, s2):
-    d1, d2 = {}, {}
-    if len(s1) == len(s2):
-        for l in set(s1):
-            d1[l] = s1.count(l)
-        for l in set(s2):
-            d2[l] = s1.count(l)
-        return d1 == d2
+    f1, f2 = {}, {}
+    if len(s1) == len(s1):
+        for x in s1:
+            f1[x] = f1[x]+1 if x in f1 else 1
+        for x in s2:
+            f2[x] = f2[x]+1 if x in f2 else 1
+        return f1 == f2
     else:
         return False
-        
+
     
 print(isAnagram1(s1, s2))
 print(isAnagram2(s1, s2))
+
