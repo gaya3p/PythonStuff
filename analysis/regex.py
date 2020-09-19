@@ -58,7 +58,7 @@ def countFrequency(name):
         #a, b = red.start(), red.end()
         #print(contents[a:b], i)
     
-    print(f'{name}: {i}')
+    print(f'f of {name}: {i}')
 
 witches_and_wizards = ['Harry',
                        'Hermione',
@@ -75,7 +75,8 @@ for person in witches_and_wizards:
     
 while True:
     word = input('\nEnter a word: ')
-    print('Frequency: ', countFrequency(word))
+    if not(word):
+        break
     
 blank = re.compile(r'[a-zA-Z]*\n')
 blanks = blank.finditer(contents)

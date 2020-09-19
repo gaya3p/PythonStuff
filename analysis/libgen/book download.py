@@ -57,7 +57,7 @@ for i in range(len(rows)):
 
 showTable(data)
 
-selection = input('Enter selection: ')
+selection = int(input('Enter selection: '))
 
 for book in data:
     if book['n'] == selection:
