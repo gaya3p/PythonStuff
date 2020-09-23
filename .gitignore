@@ -5,6 +5,7 @@ __pycache__/
 
 # Personal Files
 *.txt
+test.py
 
 # C extensions
 *.so
