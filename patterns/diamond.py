@@ -1,4 +1,5 @@
-n = int(5/2)+1
+r = 10
+n = int(r/2)+1
 
 for i in range(n):
     for j in range(n, i, -1):
@@ -9,7 +10,7 @@ for i in range(n):
 
 for i in range(n):
     for j in range(0, i):
-        print(j, end=' ')
+        print('', end=' ')
     for j in range(0, n-i):
         print('*', end=' ')
     print()

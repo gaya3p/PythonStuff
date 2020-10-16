@@ -1,6 +1,5 @@
-''''''
 from itertools import permutations
-s = 'ABCDD'
+s = 'ABDCD'
 
 def isPal(s):
     if s == s[::-1]:
@@ -8,7 +7,10 @@ def isPal(s):
     else: 
         return False
     
-perms = list(permutations(s))
+perms = []
+for i in range(3, len(s) + 1):
+    perms.extend(list(permutations(s, i)))
+
 l = 0
 a = ''
 b = ()

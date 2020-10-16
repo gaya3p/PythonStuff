@@ -28,6 +28,6 @@ def isAnagram2(s1, s2):
         return False
 
     
-print(isAnagram1(s1, s2))
+# print(isAnagram1(s1, s2))
 print(isAnagram2(s1, s2))
 

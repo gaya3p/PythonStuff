@@ -5,6 +5,7 @@ __pycache__/
 
 # Personal Files
 *.txt
+.vscode/
 test.py
 
 # C extensions

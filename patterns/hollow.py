@@ -20,7 +20,7 @@ diamond = '\n'.join(map(align, rows))
 print(diamond)
 '''
 
-n = 5
+n = 6
 j = n-1
 
 c, s = '*', ' '

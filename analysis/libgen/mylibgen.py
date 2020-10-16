@@ -13,24 +13,22 @@ DOWNLOAD_PATH = '.'
 RESET = attr(0)
 
 class Colors:
-    t_1 = fg(15)
-    t_2 = bg(4)
-    table_h = fg(12)
-    table_s = fg(10)
-    d = fg(14)
-    s_fg = fg(10)
-    e_bg = bg(9)
-    e_fg = fg(11)
-    e = fg(9)
+    title_fg = fg(15)
+    title_bg = bg(4)
+    table_head = fg(12)
+    table_grid = fg(10)
+    download = fg(14)
+    success = fg(10)
+    error = fg(9)
     white = fg(15)
     
 def displayError(err_msg):
-    print(f'\n{Colors.e}{err_msg}{RESET}')
+    print(f'\n{Colors.error}{err_msg}{RESET}')
     exit()
     
 def showTable(data):
-    print('\n%s%-4s %-25s %-25s %-25s %-7s %s' % (Colors.table_h, 'Sno', 'Author', 'Title', 'Series', 'Size', RESET))
-    print('%s%-4s %-25s %-25s %-25s %-7s%s' % (Colors.table_s, '-'*4, '-'*25, '-'*25,'-'*25, '-'*7, RESET))
+    print('\n%s%-4s %-25s %-25s %-25s %-7s %s' % (Colors.table_head, 'Sno', 'Author', 'Title', 'Series', 'Size', RESET))
+    print('%s%-4s %-25s %-25s %-25s %-7s%s' % (Colors.table_grid, '-'*4, '-'*25, '-'*25,'-'*25, '-'*7, RESET))
     
     print(Colors.white)
     for book in data:
@@ -40,20 +38,20 @@ def showTable(data):
         print('%(n)-4i %(author)-25s %(title)-25s %(series)-25s %(size)-7s' % book)
     print(RESET)
 
-def downloadBook(download_links, title):
+def downloadBook(download_links, title):    
     ''' Downloads the book from any one mirror '''
     file_name = f'{DOWNLOAD_PATH}/{title}.epub'
-    print(f'\n{Colors.d}Downloading {title}... {RESET}')
+    print(f'\n{Colors.download}Downloading {title}... {RESET}')
     for i in range(2):
         try:
             download_link = getURLfromMirror(i, download_links[i])
             request.urlretrieve(download_link, file_name)
-            print(f'\n{Colors.s_fg}Successfully Downloaded{RESET}')
+            print(f'\n{Colors.success}Successfully Downloaded{RESET}')
             return
         except:
             displayError('There was a problem. Trying again...')
             if i == 1:
-                displayError('Sorry, can\'t download the book.')
+                displayError('Sorry, can\'t download the storm of book.')
             continue
     
 def getURLfromMirror(mirror_index, download_link):
@@ -66,9 +64,9 @@ def getURLfromMirror(mirror_index, download_link):
     return download_link
         
 if __name__ == '__main__':
-    print(Colors.t_2, ' '*33 ,RESET, sep='')
-    print(f'{Colors.t_1}{Colors.t_2}   Library Genesis Book Search   {RESET}')
-    print(Colors.t_2, ' '*33 ,RESET, sep='', end='\n\n')
+    print(Colors.title_bg, ' '*33 ,RESET, sep='')
+    print(f'{Colors.title_fg}{Colors.title_bg}   Library Genesis Book Search   {RESET}')
+    print(Colors.title_bg, ' '*33 ,RESET, sep='', end='\n\n')
     
     name = input('Enter book to search: ').strip()
     if name == '':

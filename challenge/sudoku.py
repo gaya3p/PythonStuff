@@ -1,12 +1,12 @@
-sudoku = [[5,0,0,0,1,0,0,0,0],
+sudoku = [[0,0,0,0,1,0,0,0,0],
         [2,7,4,0,0,0,6,0,0],
         [0,8,0,9,0,4,0,0,0],
         [8,1,0,4,6,0,3,0,2],
         [0,0,2,0,0,0,1,0,0],
         [7,0,6,0,9,1,0,5,0],
         [0,0,0,5,0,3,0,1,0],
-        [0,0,5,0,0,0,9,2,7],
-        [1,0,0,0,2,0,0,0,3]]
+        [0,0,5,0,0,0,9,2,0], 
+        [1,0,0,0,2,0,0,0,0]] 
 
 def printGrid(grid):
     for i in range(9):
@@ -62,16 +62,38 @@ def solve(grid):
                 if len(ps_vals) == 1:
                     grid[y][x] = ps_vals[0]
 
+def brute(grid):
+    for y in range(9):
+        for x in range(9):
+            n = grid[y][x]
+            if n == 0:
+                ps_vals = []
+                for i in range(1, 10):
+                    if possible(grid, y, x, i):
+                        ps_vals.append(i)
+
+                    #already brute, so len(ps_vals) > 1
+                    n = len(ps_vals)
+                    for i in range(n):
+                        grid[y][x] = ps_vals[i]
+                        if solveAndCheck(grid):
+                            return
+
                     
 printGrid(sudoku)
-c = 0
-while not(isSolved(sudoku)):
-    solve(sudoku)
-    c += 1
-    if c > 1000:
-        print('This sudoku cannot be solved.')
-        break
-else:
-    print()
-    printGrid(sudoku)
-    print(f'\nCount: {c}')
+def solveAndCheck(grid):
+    c = 0
+    while not(isSolved(sudoku)):
+        solve(sudoku)
+        c += 1
+        if c > 1000:
+            print('\nThis sudoku cannot be solved. Brute forcing...')
+            brute(grid)
+            break
+    else:
+        print()
+        printGrid(sudoku)
+        print(f'\nCount: {c}')
+        return True
+
+solveAndCheck(sudoku)

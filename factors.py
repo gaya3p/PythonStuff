@@ -7,44 +7,36 @@ def isPrime(n):
     else:
         return False
     return True
-   
+
 def factorise(n, factors):
     if isPrime(n):
+        factors.append(n) # add the last factor
         return # exit if already prime
     if n <= 1:
-        return # preventa infinity loop & ZeroDivisionError
+        return # prevents infinity loop & ZeroDivisionError
     
-    for i in range(1, n):
-        x = int(n / i)
+    for i in range(2, int(n/2) +1):
 
-        if n % i == 0:
-            # search for a factor of n
-            if isPrime(x):
-                factors.append(x)
-                # if x is prime we've reached end of the branch
-                if isPrime(i):
-                    factors.append(i)
-                    # if i is prime, we've reached end of the program
-                break
+        if isPrime(i) and n % i == 0:
             
-        # if i is not prime, further factorise i into
-        # a * b and so on until all factors are prime
-        factorise(i, factors)
-"""
-    n
-   / \
-  x   i
-     / \
-    a   b
-"""
+            factors.append(i)
 
+            # now factorise  n / i
+            x = int(n/i)
+            return factorise(x, factors)
+
+'''
+i | n
+  |---
+  | x
+'''
 factors = []
 n = int(input('Enter the number: '))
 factorise(n, factors)
 factors.sort()
 
 if len(factors) > 1:
-    out = '*'.join(str(x) for x in factors)
+    out = '*'.join(map(str, factors))
     print(f'{out} = {n}')
 else:
     print(f'{n} is already a prime number.')

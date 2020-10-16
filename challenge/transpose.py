@@ -7,12 +7,8 @@ matrix = [
 rows = len(matrix)
 columns = len(matrix[0])
 
-flat = []
 transposed = [[] for x in range(columns)]
-    
-for i in range(rows):
-    for j in range(columns):
-        flat.append(matrix[i][j]) 
+flat = [matrix[i][j] for i in range(rows) for j in range(columns)]
 
 for i in range(columns):
     for j in range(0, len(flat), columns):
