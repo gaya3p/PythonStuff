@@ -22,4 +22,5 @@ def toRoman(n):
             n -= romanKeys[key]
     return roman
 
-print(toRoman(3888))
+n = int(input('Enter a number: '))
+print(toRoman(n))

@@ -1,11 +1,11 @@
 import random
 
 start = 0
-end = 1492
+end = 100
 n = random.randint(start, end)
 tries = 1
 
-print('Guessing Game')
+print('-----Guessing Game-----')
 print(f'The computer has guessed an integer between {start} and {end}.')
 guess = int(input('Guess the number: '))
 
