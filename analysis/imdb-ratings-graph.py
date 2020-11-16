@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+from requests.exceptions import ConnectionError
 import csv
 import matplotlib.pyplot as plt
 
@@ -20,7 +21,7 @@ SHOWS = {
 }
 
 WRITE_FILE = False
-show_id = SHOWS['Mr. Robot']
+show_id = SHOWS['Breaking Bad']
 URL = f'https://www.imdb.com/title/{show_id}/episodes?season='
 info = {}
 
@@ -62,7 +63,12 @@ def drawPlot():
 for season in range(1, SEASONS+1):
     season_info = []
     url = URL + str(season)
-    page = requests.get(url).text
+    try:
+        page = requests.get(url).text
+    except ConnectionError:
+        print('No internet connection.')
+        break
+
     soup = BeautifulSoup(page, 'lxml')
     
     ratings = soup.find_all(class_='ipl-rating-star__rating')
@@ -70,6 +76,7 @@ for season in range(1, SEASONS+1):
     
     ratings = [ratings[x] for x in range(0, len(ratings), 23)]
     
+    print(f'Season {season} loaded.')
     for i in range(0, len(names)):
         name = names[i].strong.a.text
         

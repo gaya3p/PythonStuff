@@ -1,21 +1,15 @@
 import timeit, functools
     
 s1 = 'tommarvoloriddle'
-s2 = 'iamlordvolddemort'
+s2 = 'iamlordvoldemortasd'
 
 def isAnagram1(s1, s2):
-    if len(s2) == len(s2):
-        for l1, l2 in zip(s1, s2):
-            if (l1 not in s2) or (l2 not in s1):
-                return False
-        else:
-            for letter in s1:
-                if s1.count(letter) != s2.count(letter):
-                    return False    
-            else:
-                return True
-    else:
-        return False
+    s1 = sorted(s1)
+    s2 = sorted(s2)
+
+    if s1 == s2:
+        return True
+    return False
     
 def isAnagram2(s1, s2):
     f1, f2 = {}, {}

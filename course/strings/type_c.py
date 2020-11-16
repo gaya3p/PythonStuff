@@ -27,7 +27,7 @@ for ch in l:
 print(l.swapcase())'''
 
 '''6'''
-l = 'supermegafoxyawesomehot'
+l = 'supermegafoxyawesomehots'
 n = int(len(l) / 2)
 j = n-1
 for i in range(1, n+1):
