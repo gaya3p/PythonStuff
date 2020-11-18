@@ -4,14 +4,14 @@ s2 = 'HackComIsChill'
 if len(s1) < len(s2):
     s1, s2 = s2, s1
 
-subs = ['']
+max_sub = ''
 mx = 0
 for i in range(len(s2)):
     for j in range(i+1, len(s2)+1):
         sub = s2[i:j]
         
         if (sub in s1) and (len(sub) > mx):
-            subs.append(sub)
+            max_sub = sub
             mx = len(sub)
             
-print(subs[-1])
+print(max_sub)

@@ -1,4 +1,4 @@
-import f as db
+import db
 from tkinter import *
 
 class Table:
@@ -10,7 +10,8 @@ class Table:
                 self.e.insert(END, records[i][j])
 
 def add_record_window():
-    add_window = Toplevel()
+    global add_window
+    add_window = Tk()
     
     Label(add_window, text='Insert Record').grid(row=0, column=0)
     Label(add_window, text='ID no. :').grid(row=1, column=0)
@@ -27,12 +28,12 @@ def add_record_window():
     
     # addCommand = lambda: [, ]
     
-    submit_btn = Button(add_window, text='Submit',command=add_record)
+    submit_btn = Button(add_window, text='Submit',command=lambda:add_record(id_input.get(), name_input.get(), marks_input.get()))
     submit_btn.grid(columnspan=2, row=4, column=0)
     #add_window.bind('<Return>', addCommand)
     
-def add_record():
-    db.insert_record(id_input.get(), name_input.get(), marks_input.get())
+def add_record(id_input, name_input, marks_input):
+    db.insert_record(id_input, name_input, marks_input)
     add_window.destroy()
     update_table()
 
@@ -40,6 +41,8 @@ def update_table():
     records = records = db.read_records()
     rows = len(records)
     t = Table(root)
+    root.mainloop()
+
 # module
 records = db.read_records()
 rows = len(records)
@@ -49,7 +52,7 @@ columns = len(records[0])
 root = Tk()
 root.title('Students database recorder')
 
-add_btn = Button(root, text='+', command=add_record)
+add_btn = Button(root, text='+', command=add_record_window)
 add_btn.grid(row=0, column=1)
 
 title = Label(root, text='Students')

@@ -521,7 +521,7 @@ def getWord():
     return random.choice(word_list).upper()
 
 def clearScreen(tries, incorrect_guess=''):
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print('='*6, 'HANGMAN', '='*6)
     print('Incorrect guesses left: ', tries)
     print()

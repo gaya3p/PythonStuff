@@ -5,6 +5,7 @@ __pycache__/
 
 # Personal Files
 *.txt
+*.pickle
 .vscode/
 test.py
 test/

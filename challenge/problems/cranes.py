@@ -31,10 +31,17 @@ For example, suppose the initial configuration of the game is as shown in the fi
 
 the number of boxes in each stack from left to right would be 2,1,3,1,4,0,1.
 
+The commands are encoded as follows:
+1 : Move left
+2 : Move right
+3 : Pick up box
+4 : Drop box
+0 : Quit
+
 Sample input 1
-7 4
-3 1 2 1 4 0 1
-3 2 2 2 2 4 1 3 1 4 0
+7 4 -> number of stacks, max height
+3 1 2 1 4 0 1 -> initial state
+3 2 2 2 2 4 1 3 1 4 0 -> commands
 
 Sample output 1
 2 1 3 1 4 0 1
@@ -53,7 +60,7 @@ stacks = list(map(int, input().split()))
 commands = list(map(int, input().split()))
 
 pos = 0
-curr = []
+curr = 0
 for c in commands:
     if c == 0:
         break
@@ -62,12 +69,12 @@ for c in commands:
     elif c == 2:
         pos = pos + 1 if pos < n-1 else n-1
     elif c == 3:
-        if len(curr) == 0 and stacks[pos] > 0:
-            curr.append(stacks[pos])
+        if curr == 0 and stacks[pos] > 0:
+            curr = 1
             stacks[pos] -= 1
     elif c == 4:
-        if len(curr) == 1 and stacks[pos] < h:
-            curr.pop()
+        if curr == 1 and stacks[pos] < h:
+            curr = 0
             stacks[pos] += 1
     else:
         continue

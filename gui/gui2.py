@@ -1,5 +1,5 @@
 import tkinter as tk
-import f as db
+import og as db
 
 class MainApplication:
     def __init__(self, master):

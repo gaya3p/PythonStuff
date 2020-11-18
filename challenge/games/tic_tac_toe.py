@@ -1,7 +1,7 @@
-from os import system
+import os
 
 def print_board(board, error_code=0):
-    system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print('='*7, 'Tic Tac Toe', '='*7)
 
     if error_code == 1:
@@ -19,7 +19,7 @@ def print_board(board, error_code=0):
             else:
                 piece = ' o ' if item == 1 else ' x '
             print(piece, end='|')
-        print()as
+        print()
     print('-'*13)
 
 def game_over(board):
