@@ -17,7 +17,7 @@ SHOW_MIRRORS = True # Set to True or False depending if you want the program to 
 
 def getSearchResults(term, page, column):
     params = urlencode({'req': term, 'column': column, 'page': page})
-    url = 'http://libgen.io/search.php?&%s' % params
+    url = 'http://libgen.rs/search.php?&%s' % params
 
     source = request.urlopen(url)
     soup = BeautifulSoup(source, 'lxml')
