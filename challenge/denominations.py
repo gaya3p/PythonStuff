@@ -21,4 +21,5 @@ for a in d.keys():
     money = s
 
 for x, y in d.items():
-    print(f'{x} * {y}')
+    if y:
+        print(f'{x} * {y}')

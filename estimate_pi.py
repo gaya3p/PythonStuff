@@ -4,7 +4,7 @@ import math
 
 inside = 0
 a = 0
-n =100000
+n = 100000
 
 for i in range(n):
     x2 = random()**2

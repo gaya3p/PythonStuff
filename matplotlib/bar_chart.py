@@ -17,7 +17,7 @@ plt.yticks(xIndex, x)'''
 plt.bar(xIndex - w/2, y, label="bar 1", width=w, color='b')
 plt.bar(xIndex + w/2, y2, label="bar 2", width=w, color='c')
 
-plt.Xticks(xIndex, x)
+plt.xticks(xIndex, x)
 
 plt.xlabel('x')
 plt.ylabel('y')

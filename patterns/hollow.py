@@ -33,3 +33,14 @@ for i in range(1, n*2):
     else:
         print(s*(n-i) + c + s*(2*i-1) + c)
 print(n*s + c)
+
+''' Hollow half diamond '''
+rows = 11
+n = int(rows/2)
+s = ' '
+print(c)
+for i in range(1, n):
+    print(c + s*(2*i-1) + c)
+for i in range(n, 0, -1):
+    print(c + s*(2*i-1) + c)
+print(c)
