@@ -13,8 +13,8 @@ def login():
 	p = hashlib.md5(p.encode())
 
 	p = p.hexdigest()
-	query="select * from login where username='"+u+"' and  password=('"+p+"')"
-	
+	query="select * from login where user='"+u+"'"# and  password=('"+p+"')"
+	print(p)
 	mycur.execute(query)
 	mydata = mycur.fetchone()
 	#print(mydata[0],mydata[1])
