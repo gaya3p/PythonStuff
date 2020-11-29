@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 # Personal Files
+old/
 *.txt
 *.pickle
 .vscode/
